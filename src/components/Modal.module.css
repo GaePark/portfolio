@@ -84,3 +84,13 @@
     transform: scale(1);
   }
 }
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    height: 70%;
+  }
+  .image {
+    height: 20%;
+  }
+}

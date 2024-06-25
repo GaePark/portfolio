@@ -123,3 +123,9 @@ section p {
 .project img {
   width: 100%;
 }
+
+@media (max-width: 480px) {
+  .portfolio__box {
+    display: block;
+  }
+}
