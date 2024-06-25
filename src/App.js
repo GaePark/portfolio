@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import "./App.css";
 import Modal from "./components/Modal";
 
-function App() {
+export default function App() {
   const portfolioData = [
     {
       title: "무신사",
@@ -210,5 +210,6 @@ function App() {
       </footer>
 
       {openModal && <Modal {...modaldb} setOpenModal={setOpenModal} />}
-      </div>
-  )}
+    </div>
+  );
+}
