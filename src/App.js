@@ -129,7 +129,6 @@ export default function App() {
   const onClickModal = (el) => {
     setModaldb(el);
     setOpenModal(true);
-    console.log(el);
   };
 
   const onClickgithub = () => {

@@ -27,7 +27,9 @@ const Modal = ({ title, text, img, skills, site, nav, setOpenModal }) => {
         <h2>SKILL</h2>
         <p>
           {skills.map((el) => (
-            <span style={{ marginRight: "20px" }}>- {el.skill}</span>
+            <span key={el.skill} style={{ marginRight: "20px" }}>
+              - {el.skill}
+            </span>
           ))}
         </p>
         <h2>SITE</h2>
