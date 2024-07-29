@@ -101,6 +101,18 @@ export default function App() {
     { title: "Contact" },
   ];
 
+  const mySkill = [
+    { img: "HTML5.png" },
+    { img: "CSS3.png" },
+    { img: "javascript.png" },
+    { img: "typescript.png" },
+    { img: "react.png" },
+    { img: "nextjs.png" },
+    { img: "redux.png" },
+    { img: "Illustrator.png" },
+    { img: "Photoshop.png" },
+  ];
+
   const [openModal, setOpenModal] = useState(false);
   const [modaldb, setModaldb] = useState({});
   const aboutRef = useRef(null);
@@ -121,11 +133,7 @@ export default function App() {
   };
 
   const onClickMove = (ref) => {
-    const offset = ref.current.offsetTop;
-    window.scrollTo({
-      top: offset,
-      behavior: "smooth",
-    });
+    ref.current.scrollIntoView({ behavior: "smooth" });
   };
 
   const onClickModal = (el) => {
@@ -159,15 +167,30 @@ export default function App() {
         <h1>About Me</h1>
         <div className="about__box">
           <p>
-            전직 군인이자 프론트엔드 개발자를 희망하는 박준현입니다. 군인으로
-            근무하며 근면성실하고 책임감 있는 성격을 길러왔습니다. 그리고
-            아르바이트를 하면서도 협업과 커뮤니케이션 능력을 향상시켰습니다.
-            경험과 이력을 바탕으로 프론트엔드 개발 분야에서 성장하고 싶습니다.
-            제가 가진 기술과 열정을 통해 혁신적이고 사용자 친화적인 웹을
-            만들어보고 싶습니다. 프론트엔드 개발자로서의 역량을 향상시키기 위해
-            지속적인 학습과 연구에 힘쓸 것입니다. 함께 일하고 성장할 기회를
-            주신다면 최선을 다해 결과를 만들어낼 것입니다.
+            프론트엔드 개발자를 희망하는 박준현입니다. 군인으로 근무하며
+            근면성실하고 책임감 있는 성격을 길러왔습니다. 그리고 아르바이트를
+            하면서도 협업과 커뮤니케이션 능력을 향상시켰습니다. 경험과 이력을
+            바탕으로 프론트엔드 개발 분야에서 성장하고 싶습니다. 제가 가진
+            기술과 열정을 통해 혁신적이고 사용자 친화적인 웹을 만들어보고
+            싶습니다. 프론트엔드 개발자로서의 역량을 향상시키기 위해 지속적인
+            학습과 연구에 힘쓸 것입니다. 함께 일하고 성장할 기회를 주신다면
+            최선을 다해 결과를 만들어내겠습니다.
           </p>
+        </div>
+      </section>
+
+      <section style={{ margin: "20px" }}>
+        <h1>My Skill</h1>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}>
+          {mySkill.map((el) => (
+            <div>
+              <img
+                style={{ height: "60px", margin: "5px" }}
+                src={`${process.env.PUBLIC_URL}/images/${el.img}`}
+                alt={el.img}
+              />
+            </div>
+          ))}
         </div>
       </section>
 
