@@ -35,16 +35,18 @@ export default function App() {
     },
     {
       title: "포켓몬 도감",
-      nav: "https://github.com/GaePark/react-pokemon.git",
+      nav: "https://github.com/GaePark/react-redux-pokemon.git",
       img: "/images/pokemon.png",
-      site: "https://gaepark.github.io/react-pokemon/",
+      site: "https://gaepark.github.io/react-redux-pokemon/",
       skills: [
         { skill: "React" },
         { skill: "Axios" },
-        { skill: "Tailwindcss" },
         { skill: "react-router" },
+        { skill: "TypeScript" },
+        { skill: "antd" },
+        { skill: "redux" },
       ],
-      text: " axios를 활용하여 pokeAPI안에 있는 데이터를 가져와 포켓몬 도감 페이지를 제작하였습니다.",
+      text: " axios, 타입스크립트, 리덕스를 활용하여 포켓몬 도감페이지를 제작하였습니다.",
     },
     {
       title: "next.js 퀴즈앱",
