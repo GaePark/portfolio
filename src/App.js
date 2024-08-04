@@ -26,14 +26,6 @@ export default function App() {
       text: "디자인 삼성페이지를 따라 만들었습니다.",
     },
     {
-      title: "Todo App",
-      nav: "https://github.com/GaePark/JavaScript-Todo-app.git",
-      img: "/images/todo.png",
-      site: "https://gaepark.github.io/JavaScript-Todo-app",
-      skills: [{ skill: "javaScript" }, { skill: "css" }, { skill: "html" }],
-      text: "자바스크립트 안에 JSON 객체 문법을 활용하여 localstorage에 데이터를 저장할 수 있는 todo-app을 만들었습니다. ",
-    },
-    {
       title: "포켓몬 도감",
       nav: "https://github.com/GaePark/react-redux-pokemon.git",
       img: "/images/pokemon.png",
@@ -47,6 +39,14 @@ export default function App() {
         { skill: "redux" },
       ],
       text: " axios, 타입스크립트, 리덕스를 활용하여 포켓몬 도감페이지를 제작하였습니다.",
+    },
+    {
+      title: "Todo App",
+      nav: "https://github.com/GaePark/JavaScript-Todo-app.git",
+      img: "/images/todo.png",
+      site: "https://gaepark.github.io/JavaScript-Todo-app",
+      skills: [{ skill: "javaScript" }, { skill: "css" }, { skill: "html" }],
+      text: "자바스크립트 안에 JSON 객체 문법을 활용하여 localstorage에 데이터를 저장할 수 있는 todo-app을 만들었습니다. ",
     },
     {
       title: "next.js 퀴즈앱",
@@ -95,20 +95,17 @@ export default function App() {
     },
   ];
 
-  const nav = [
-    { title: "About" },
-    { title: "Portfolio" },
-    { title: "Contact" },
-  ];
+  const nav = [{ title: "About" }, { title: "skill" }, { title: "Portfolio" }];
 
   const mySkill = [
     { img: "HTML5.png" },
     { img: "CSS3.png" },
     { img: "javascript.png" },
-    { img: "typescript.png" },
     { img: "react.png" },
-    { img: "nextjs.png" },
+    { img: "nextjs.svg" },
+    { img: "typescript.png" },
     { img: "redux.png" },
+    { img: "firebase.png" },
     { img: "Illustrator.png" },
     { img: "Photoshop.png" },
   ];
@@ -117,8 +114,11 @@ export default function App() {
   const [modaldb, setModaldb] = useState({});
   const aboutRef = useRef(null);
   const portfolioRef = useRef(null);
-  const contactRef = useRef(null);
-  const ref = [aboutRef, portfolioRef, contactRef];
+  const skillRef = useRef(null);
+  const ref = [aboutRef, skillRef, portfolioRef];
+
+  const date = new Date();
+  const year = date.getFullYear();
 
   window.onscroll = function () {
     scrollFunction();
@@ -141,9 +141,6 @@ export default function App() {
     setOpenModal(true);
   };
 
-  const onClickgithub = () => {
-    window.open("https://github.com/GaePark");
-  };
   return (
     <div className="wrapper">
       <header id="navbar">
@@ -163,9 +160,11 @@ export default function App() {
         <p>성장하는 프론트엔드 개발자 박준현 입니다!</p>
       </section>
 
-      <section id="about" ref={aboutRef}>
-        <h1>About Me</h1>
-        <div className="about__box">
+      <section ref={aboutRef} className="aboutMe">
+        <div>
+          <h1>About Me</h1>
+        </div>
+        <div>
           <p>
             프론트엔드 개발자를 희망하는 박준현입니다. 군인으로 근무하며
             근면성실하고 책임감 있는 성격을 길러왔습니다. 그리고 아르바이트를
@@ -179,59 +178,43 @@ export default function App() {
         </div>
       </section>
 
-      <section style={{ margin: "20px" }}>
+      <section ref={skillRef} className="skills">
         <h1>My Skill</h1>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}>
-          {mySkill.map((el) => (
-            <div>
-              <img
-                style={{ height: "60px", margin: "5px" }}
-                src={`${process.env.PUBLIC_URL}/images/${el.img}`}
-                alt={el.img}
-              />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="portfolio" ref={portfolioRef}>
-        <h1>My Portfolio</h1>
-        <div className="portfolio__box">
-          {portfolioData.map((el) => (
+        <div>
+          {mySkill.map((skill) => (
             <div
-              className="project"
-              key={el.title}
-              onClick={() => onClickModal(el)}
-            >
+              key={skill.img}
+              style={{
+                backgroundImage: `url(${process.env.PUBLIC_URL}/images/${skill.img})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            ></div>
+          ))}
+        </div>
+      </section>
+
+      <section ref={portfolioRef} className="portfolio">
+        <h1>Portfolio</h1>
+        <div>
+          {portfolioData.map((port) => (
+            <div key={port.title} onClick={() => onClickModal(port)}>
               <img
-                src={process.env.PUBLIC_URL + el.img}
-                alt={el.title}
-                style={{ width: "100%" }}
-                id={el.nav}
+                src={`${process.env.PUBLIC_URL}${port.img}`}
+                alt={port.title}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "center",
+                }}
               />
-              <h2>{el.title}</h2>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="contact" ref={contactRef}>
-        <h1>Contact Me</h1>
-        <div className="contact__box">
-          <h2>전화번호</h2>
-          <p>010.9940.1789</p>
-          <p
-            onClick={onClickgithub}
-            style={{ cursor: "pointer", color: "black", fontWeight: "bold" }}
-          >
-            https://github.com/GaePark
-          </p>
-        </div>
-      </section>
-
-      <footer>
-        <p>2023. Park Jun Hyeon</p>
-      </footer>
+      <footer>{year}. Park Jun Hyeon</footer>
 
       {openModal && <Modal {...modaldb} setOpenModal={setOpenModal} />}
     </div>
