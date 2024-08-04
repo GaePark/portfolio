@@ -198,7 +198,11 @@ export default function App() {
         <h1>Portfolio</h1>
         <div>
           {portfolioData.map((port) => (
-            <div key={port.title} onClick={() => onClickModal(port)}>
+            <div
+              className="port"
+              key={port.title}
+              onClick={() => onClickModal(port)}
+            >
               <img
                 src={`${process.env.PUBLIC_URL}${port.img}`}
                 alt={port.title}
@@ -209,6 +213,7 @@ export default function App() {
                   objectPosition: "center",
                 }}
               />
+              <div className="port_title">{port.title}</div>
             </div>
           ))}
         </div>

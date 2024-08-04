@@ -128,18 +128,50 @@ section p {
     grid-template-rows: auto;
     gap: 30px;
 
-    > div {
+    > .port {
       aspect-ratio: 1 / 1;
       border-radius: 10px;
       border: 1px solid #666;
       overflow: hidden;
       cursor: pointer;
+      position: relative;
+      filter: grayscale(0) blur(0);
+    }
+    > .port:hover > .port_title {
+      opacity: 1;
+    }
+
+    .port:hover::before {
+      opacity: 1;
+    }
+
+    > .port::before {
+      opacity: 0;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
       transition: 0.5s;
     }
-    > div:hover {
-      transform: scale(1.05);
-    }
   }
+}
+
+.port_title {
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  top: 50%;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  transform: translate(-50%, -50%);
+  transition: 0.5s;
+  z-index: 2;
 }
 
 footer {
