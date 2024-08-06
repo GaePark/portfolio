@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
 
+html {
+  font-size: 12px;
+}
 .wrapper {
   background-color: #f5f5f5;
   color: #333;
@@ -22,6 +25,7 @@ header {
 nav {
   width: 100%;
   max-width: 1200px;
+  font-size: 1.5rem;
 }
 
 nav ul {
@@ -53,14 +57,8 @@ section {
 }
 
 section h1 {
-  font-size: 36px;
+  font-size: 3rem;
   color: #333;
-}
-
-section p {
-  font-size: 18px;
-  color: #555;
-  line-height: 1.6;
 }
 
 .hello {
@@ -73,12 +71,19 @@ section p {
   justify-content: center;
   align-items: center;
   background-attachment: fixed;
+
+  p {
+    font-size: 1.5rem;
+    color: #555;
+    line-height: 1.6;
+  }
 }
 
 .hello p {
-  font-size: 50px;
+  font-size: 3.5rem;
   font-weight: 700;
   color: #fff;
+  text-align: center;
 }
 
 .aboutMe {
@@ -95,7 +100,7 @@ section p {
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     p {
       margin: 0 10px;
-      font-size: 18px;
+      font-size: 1.4rem;
       text-align: justify;
     }
   }
@@ -180,4 +185,57 @@ footer {
   text-align: center;
   line-height: 200px;
   background-color: #ddd;
+}
+
+@media (max-width: 1200px) {
+  section {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 800px) {
+  .hello p {
+    font-size: 2.5rem;
+  }
+
+  .aboutMe {
+    grid-template-columns: 1fr;
+
+    p {
+      padding: 0 20px;
+    }
+  }
+
+  .skills {
+    > div {
+      padding: 0 20px;
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  .portfolio {
+    > div {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hello p {
+    font-size: 2rem;
+  }
+
+  .skills {
+    > div {
+      padding: 0 20px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .portfolio {
+    > div {
+      padding: 0 20px;
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
 }
