@@ -26,6 +26,19 @@ export default function App() {
       text: "디자인 삼성페이지를 따라 만들었습니다.",
     },
     {
+      title: "게시글 페이지",
+      nav: "https://github.com/GaePark/react-diary.git",
+      img: "",
+      site: "https://gaepark.github.io/react-diary",
+      skills: [
+        { skill: "React" },
+        { skill: "redux" },
+        { skill: "firebase" },
+        { skill: "TypeScript" },
+      ],
+      text: "게시글 페이지를 제작중에 있습니다",
+    },
+    {
       title: "포켓몬 도감",
       nav: "https://github.com/GaePark/react-redux-pokemon.git",
       img: "/images/pokemon.png",
@@ -108,6 +121,7 @@ export default function App() {
     { img: "firebase.png" },
     { img: "Illustrator.png" },
     { img: "Photoshop.png" },
+    { img: "figma.png" },
   ];
 
   const [openModal, setOpenModal] = useState(false);
