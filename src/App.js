@@ -28,7 +28,7 @@ export default function App() {
     {
       title: "게시글 페이지",
       nav: "https://github.com/GaePark/react-diary.git",
-      img: "",
+      img: "/images/diary.png",
       site: "https://gaepark.github.io/react-diary",
       skills: [
         { skill: "React" },
